@@ -6,6 +6,13 @@ Express js is a light-weight web application framework to help organize your web
 
 You can then use a database like MongoDB with Mongoose (for modeling) to provide a backend for your Node.js application. Express.js basically helps you manage everything, from routes, to handling requests and views.
 
+To learn how to setup a nodejs application from scratch, follow this url:
+http://expressjs.com/en/starter/installing.html
+
+To compare nodejs with Java for server programming, follow this url:
+http://www.infoworld.com/article/2883328/java/java-vs-nodejs-an-epic-battle-for-developer-mindshare.html
+
+
 Steps to run this POC:
 
 1)Install nodejs from: https://nodejs.org/en/
@@ -25,9 +32,3 @@ localhost:3000/testRest/3000
 7)To check the error handling for rest api, call the same url with wrong port no:
 localhost:3000/testRest/9999
 
-
-To learn how to setup a nodejs application from scratch, follow this url:
-http://expressjs.com/en/starter/installing.html
-
-To compare nodejs with Java for server programming, follow this url:
-http://www.infoworld.com/article/2883328/java/java-vs-nodejs-an-epic-battle-for-developer-mindshare.html
