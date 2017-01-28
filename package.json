@@ -1,0 +1,22 @@
+{
+  "name": "Nodejs-poc",
+  "version": "0.0.0",
+  "description": "POC for setting up a nodejs server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ramit21/Nodejs-poc.git"
+  },
+  "author": "Ramit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramit21/Nodejs-poc/issues"
+  },
+  "homepage": "https://github.com/ramit21/Nodejs-poc",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
