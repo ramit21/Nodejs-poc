@@ -26,9 +26,11 @@ Steps to run this POC:
 5)Test sending paramters in GET request (someText1 and someText2) using the url:
 http://localhost:3000/testGet/someText1?value=someText2
 
-6)To call the Rest api from the server, hit the below url:
-localhost:3000/testRest/3000
+6)Test post request by hitting http://localhost:3000/testPost from a Rest client. 
+To parse the request body in case of POST a request, 'bodyParser' needs to be installed: 'npm install --save body-parser'.
+From the client side, ensure to send some valid Json as POST request body, and to set Content-Type in the header to application/json.
 
-7)To check the error handling for rest api, call the same url with wrong port no:
-localhost:3000/testRest/9999
+7)To call the Rest api from the server, hit the url localhost:3000/testRest/3000
+
+8)To check the error handling for rest api, call the same url with wrong port no localhost:3000/testRest/9999
 
