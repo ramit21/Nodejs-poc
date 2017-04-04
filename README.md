@@ -46,5 +46,8 @@ From the client side, ensure to send some valid Json as POST request body, and t
 
   For more details on templating, please refer: https://expressjs.com/en/guide/using-template-engines.html
 
+Q. Where exactly to use nodejs?
+Ans. To build a lightweight, high traffic, data-intensive (but low processing/computation) application that runs across distributed devices.
 
+For more details, refer https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e
 
