@@ -8,12 +8,19 @@ var restService = require("./service/restService.js");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.set('views', './views') //path to html directory
+app.set('view engine', 'pug')
+
 app.listen(3000, function () {
   	console.log('Example app listening on port 3000!');
 });
 
 app.get('/', function (req, res) {
   	res.send('Welcome to nodejs server!');
+});
+
+app.get('/pug', function (req, res) {
+  	res.render('index', { title: 'Hey', message: 'Hello there!' })
 });
 
 app.get('/testGet/:text', function (req, res) {

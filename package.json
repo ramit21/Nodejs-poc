@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ramit21/Nodejs-poc",
   "dependencies": {
     "body-parser": "^1.16.0",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta11"
   }
 }

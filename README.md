@@ -17,7 +17,7 @@ Steps to run this POC:
 
 1)Install nodejs from: https://nodejs.org/en/
 
-2)Git clone this repo and run 'npm install'
+2)Git clone this repo and run 'npm install' (this creates the node_modules folder)
 
 3)Start the server by running: 'node app.js'
 
@@ -34,3 +34,12 @@ From the client side, ensure to send some valid Json as POST request body, and t
 
 8)To check the error handling for rest api, call the same url with wrong port no localhost:3000/testRest/9999
 
+9)To test the pug templating framework, hit the url: localhost:3000/pug. Steps for pug setup:
+  npm install pug --save
+  app.set('view engine', 'pug') to set the templating agent
+  Create a Pug template file named index.pug in the views directory
+  Then create a route to render the pug file: res.render('index', { title: 'Hey', message: 'Hello there!' })
+  For more details, please refer: https://expressjs.com/en/guide/using-template-engines.html
+
+
+  
