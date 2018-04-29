@@ -46,8 +46,22 @@ From the client side, ensure to send some valid Json as POST request body, and t
 
   For more details on templating, please refer: https://expressjs.com/en/guide/using-template-engines.html
 
+10) To Setup Mocha/Chai based unit testing:
+  npm install mocha --save    //Nodejs testing framework
+  npm install chai --save     //Assertion framework
+  npm install request --save  //For integration testing, we would need a way to send http requests, so install this request module
+  In package.json add following:
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  }
+  Finally create the test spec. See converter.*.spec.js files on how we import chai, request (in integration test case) and the actual module to be tested (in unit test case). The first module of test case is unit test.
+  Run npm test -> and see that only unit test cases pass.
+  Now start the server -> node app.js, and then again run -> npm test to see all test cases pass.
+
+
 Q. Where exactly to use nodejs?
 Ans. To build a lightweight, high traffic, data-intensive (but low processing/computation) application that runs across distributed devices.
 
 For more details, refer https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e
+https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
 
