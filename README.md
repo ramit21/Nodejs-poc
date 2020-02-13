@@ -1,17 +1,5 @@
 # Nodejs-poc
-POC for setting up nodejs server 
-
-Nodejs is an event driven, single threaded web server written in javascript.
-Express js is a light-weight web application framework to help organize your web application into an MVC architecture on the server side.
-
-You can then use a database like MongoDB with Mongoose (for modeling) to provide a backend for your Node.js application. Express.js basically helps you manage everything, from routes, to handling requests and views.
-
-To learn how to setup a nodejs application from scratch, follow this url:
-http://expressjs.com/en/starter/installing.html
-
-To compare nodejs with Java for server programming, follow this url:
-http://www.infoworld.com/article/2883328/java/java-vs-nodejs-an-epic-battle-for-developer-mindshare.html
-
+POC for setting up nodejs server
 
 Steps to run this POC:
 
@@ -68,10 +56,50 @@ From the client side, ensure to send some valid Json as POST request body, and t
   
   Now start the server -> node app.js, and then again run -> npm test to see all test cases pass.
 
+## Theory
+
+Nodejs is an event driven, single threaded web server written in javascript.
+Express js is a light-weight web application framework to help organize your web application into an MVC architecture on the server side.
+
+You can then use a database like MongoDB with Mongoose (for modeling) to provide a backend for your Node.js application. Express.js basically helps you manage everything, from routes, to handling requests and views.
+
+Nodejs runs on top of V8 engine, which reads the javascript code, and calls the underlying C++ functions. Google chrome also uses V8 engine for similar use. Also note that just like we have a window variable on browsers to hold global variables, nodejs has a variable named 'global' for the same purpose.
+
+To learn how to setup a nodejs application from scratch, follow this url:
+http://expressjs.com/en/starter/installing.html
+
+To compare nodejs with Java for server programming, follow this url:
+http://www.infoworld.com/article/2883328/java/java-vs-nodejs-an-epic-battle-for-developer-mindshare.html
 
 Q. Where exactly to use nodejs?
 Ans. To build a lightweight, high traffic, data-intensive (but low processing/computation) application that runs across distributed devices.
 
 For more details, refer https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e
 https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
+
+----------------------------------------------------------
+You can refer nodejs.org for to check how to use various modules provided by nodejs. Eg. https://nodejs.org/dist/latest-v12.x/docs/api/console.html 
+
+You can search for npm packages on https://www.npmjs.com/package/package.
+
+npm install --save to update package.json, and npm install -g doesn't update package json, it updates the node installed on the system.
+
+You can use nodemon package for devtools, ie keep the command line up and running, even after your node file has finished executing. If you make any changes to the code, nodemon will automatically re run the node command. Instead of running node file, you run it via nodemon, ie > nodemon file.
+
+You can use the chalk module for printing colourful console.log statements on the terminal.
+
+Command line arguments can be passed when running the node command, and can be accessed in the code via process.argv variable. You can also include and use the yargs module for more fine grain handling of run time arguments such as calling handler functions on different arguments, or pass arguments with values like --title='abc' etc.
+
+**Debugging**: console.log is the obvious choice. But you can also use inspect. Start the the app as:
+```
+node inspect app.js
+```
+Next, visit chrome://inspect in the Chrome browser. There, you’ll see a list of all the
+Node.js processes that you’re able to debug. Click “inspect” next to your Node.js process to open up the developer tools. From there, you can click the blue “play” button near the top-right of the “sources” tab to start up the application. You can also add 'debugger' in the source code in the browser.
+
+
+
+
+
+
 
