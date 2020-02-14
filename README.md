@@ -84,7 +84,7 @@ You can search for npm packages on https://www.npmjs.com/package/package.
 
 npm install --save to update package.json, and npm install -g doesn't update package json, it updates the node installed on the system.
 
-You can use nodemon package for devtools, ie keep the command line up and running, even after your node file has finished executing. If you make any changes to the code, nodemon will automatically re run the node command. Instead of running node file, you run it via nodemon, ie > nodemon file.
+You can use nodemon package for devtools, ie keep the command line up and running, even after your node file has finished executing. If you make any changes to the code, nodemon will automatically re run the node command. Instead of running node file, you run it via nodemon, ie > nodemon file. Nodemon is installed with -g flag so that all node applications can be run against it.
 
 You can use the chalk module for printing colourful console.log statements on the terminal.
 
