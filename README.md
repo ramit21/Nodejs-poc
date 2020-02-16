@@ -34,7 +34,7 @@ From the client side, ensure to send some valid Json as POST request body, and t
 
   For more details on templating, please refer: https://expressjs.com/en/guide/using-template-engines.html
 
-10) To Setup Mocha/Chai based unit testing:
+10) Unit Testing: Setup Mocha/Chai:
 
   npm install mocha --save    //Nodejs testing framework
 
@@ -58,7 +58,6 @@ From the client side, ensure to send some valid Json as POST request body, and t
 
   Also see converter.api.spec.js on how to test asynchronous code. This is achieved using the 'done' parameter. Testing framework will execute the expect only when the done() is called in the test case.
 
-  If you do not want to make http calls to the actual server for integration tests, then use 'Supertest' library to mock the server itself.
 
 ## Theory
 
