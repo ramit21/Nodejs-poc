@@ -84,7 +84,10 @@ You can search for npm packages on https://www.npmjs.com/package/package.
 
 npm install --save to update package.json, and npm install -g doesn't update package json, it updates the node installed on the system.
 
-You can use nodemon package for devtools, ie keep the command line up and running, even after your node file has finished executing. If you make any changes to the code, nodemon will automatically re run the node command. Instead of running node file, you run it via nodemon, ie > nodemon file. Nodemon is installed with -g flag so that all node applications can be run against it.
+You can use nodemon package for devtools, ie keep the command line up and running, even after your node file has finished executing. If you make any changes to the code, nodemon will automatically re run the node command. Instead of running node file, you run it via nodemon, ie > nodemon file. Nodemon is installed with -g flag so that all node applications can be run against it. Also, see the "dev" script as configured in the package.json. You can then use below to run with nodemon in dev:
+```
+npm run dev
+```
 
 You can use the chalk module for printing colourful console.log statements on the terminal.
 
@@ -94,8 +97,7 @@ Command line arguments can be passed when running the node command, and can be a
 ```
 node inspect app.js
 ```
-Next, visit chrome://inspect in the Chrome browser. There, you’ll see a list of all the
-Node.js processes that you’re able to debug. Click “inspect” next to your Node.js process to open up the developer tools. From there, you can click the blue “play” button near the top-right of the “sources” tab to start up the application. You can also add 'debugger' in the source code in the browser.
+Next, visit 'chrome://inspect' in the Chrome browser. There, you’ll see a list of all the Node.js processes that you’re able to debug. Click “inspect” next to your Node.js process to open up the developer tools. From there, you can click the blue “play” button near the top-right of the “sources” tab to start up the application. You can also add 'debugger' in the source code in the browser.
 
 
 
