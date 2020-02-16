@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser =  require("body-parser");
 const chalk = require('chalk');
+const colorRouter = require('./routers/colorRouter');
 
 console.log(chalk.blue(__dirname, __filename));
 
@@ -9,11 +10,11 @@ const path = require('path'); //default modules provided by nodejs need not be i
 const viewPath = path.join(__dirname, '/views');
 
 const restService = require("./service/restService.js");
-const converter = require("./service/converter");
 
 //Here we are configuring express to use body-parser as middle-ware for POST requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(colorRouter); //seperate routes into separate files like this
 
 app.set('views', viewPath) //path to html directory
 app.set('view engine', 'pug')
@@ -54,20 +55,6 @@ app.post('/testPost', (req, res) => {
 	data.processed=true;
   	res.send(data);
 });
-
-app.get("/rgbToHex", (req, res) => {
-	const red   = parseInt(req.query.red, 10);
-	const green = parseInt(req.query.green, 10);
-	const blue  = parseInt(req.query.blue, 10);
-	const hex = converter.rgbToHex(red, green, blue);
-	res.send(hex);
-  });
-  
-  app.get("/hexToRgb", (req, res) => {
-	const hex = req.query.hex;
-	const rgb = converter.hexToRgb(hex);
-	res.send(JSON.stringify(rgb));
-  });
 
   //default match should be kept in the last
   app.get("*", (req, res) => {
