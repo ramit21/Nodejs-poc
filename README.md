@@ -52,9 +52,13 @@ From the client side, ensure to send some valid Json as POST request body, and t
 
   Finally create the test spec. See converter.*.spec.js files on how we import chai, request (in integration test case) and the actual module to be tested (in unit test case). The first module of test case is unit test.
 
-  Run npm test -> and see that only unit test cases pass.
+  Run **npm test** -> and see that only unit test cases pass, not the integration test case.
   
   Now start the server -> node app.js, and then again run -> npm test to see all test cases pass.
+
+  Also see converter.api.spec.js on how to test asynchronous code. This is achieved using the 'done' parameter. Testing framework will execute the expect only when the done() is called in the test case.
+
+  If you do not want to make http calls to the actual server for integration tests, then use 'Supertest' library to mock the server itself.
 
 ## Theory
 
