@@ -124,4 +124,4 @@ jwt.sign({ user details }, 'myPassword');
 and then on subsequent calls, you can verify the token like this:
 jwt.verify(token, 'myPassword');
 ```
-
+When creating the token, you can also pass in an optional expiry paramter after which the token expires.
