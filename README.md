@@ -15,8 +15,15 @@ Steps to run this POC:
 http://localhost:3000/testGet/someText1?value=someText2
 
 6)Test post request by hitting http://localhost:3000/testPost from a Rest client. 
-To parse the request body in case of POST a request, 'bodyParser' needs to be installed: 'npm install --save body-parser'.
-From the client side, ensure to send some valid Json as POST request body, and to set Content-Type in the header to application/json.
+(To parse the request body in case of POST a request, 'bodyParser' needs to be installed: 'npm install --save body-parser')
+JSON data for request from postman:
+```
+{
+	"title": "abc",
+	"content": "xyz"
+}
+```
+Try removing content from above, or give empty title and see the validations fail.
 
 7)To call the Rest api from the server, hit the url localhost:3000/testRest/3000
 
@@ -103,9 +110,7 @@ node inspect app.js
 ```
 Next, visit 'chrome://inspect' in the Chrome browser. There, you’ll see a list of all the Node.js processes that you’re able to debug. Click “inspect” next to your Node.js process to open up the developer tools. From there, you can click the blue “play” button near the top-right of the “sources” tab to start up the application. You can also add 'debugger' in the source code in the browser.
 
-
-
-
+Mongoose is a library used to declare object schema and add validations to the model. Works really well when persisitng data models in the mongo db. Easily integrates validations on respective fields of the model. 
 
 
 

@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser =  require("body-parser");
 const chalk = require('chalk');
+const Post = require('./model/post');
 const colorRouter = require('./routers/colorRouter');
 
 console.log(chalk.blue(__dirname, __filename));
@@ -50,15 +51,21 @@ app.get('/testRest/:port', (req, res) => {
 });
 
 app.post('/testPost', (req, res) => {
-	console.log("body",req.body);
-	const data = req.body;
-	data.processed=true;
-  	res.send(data);
+	//console.log("Post request body:", req.body);
+	const post = new Post(req.body);
+	console.log("saving post = ",post);
+	post.save().then(() => { //this would save object to db connected via mongoose.connect()
+		console.log("Saved...");
+		res.send(post);
+	}).catch((error) => {
+		console.log("Error...", post);
+		res.status(400).send(error);    //See how to set error codes in response
+	});	
 });
 
   //default match should be kept in the last
   app.get("*", (req, res) => {
 	console.log(chalk.red('404 error.'));
-	res.send('My 404 Not found');
+	res.status(404).send('My 404 Not found');
   });
   
