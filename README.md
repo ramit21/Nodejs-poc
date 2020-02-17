@@ -112,5 +112,16 @@ Next, visit 'chrome://inspect' in the Chrome browser. There, you’ll see a list
 
 Mongoose is a library used to declare object schema and add validations to the model. Works really well when persisitng data models in the mongo db. Easily integrates validations on respective fields of the model. 
 
+Extras:
 
+You can use bcrypt library to encrypt the data.
+
+You can jsonwebtoken library to create or verify JWT tokens:
+```
+const jwt = require('jsonwebtoken');
+jwt.sign({ user details }, 'myPassword');
+
+and then on subsequent calls, you can verify the token like this:
+jwt.verify(token, 'myPassword');
+```
 
