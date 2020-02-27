@@ -139,7 +139,7 @@ You can also get user name from the validted token. This verification can be add
 
 1. **Event-loop** -> Single threaded. nodejs maintains a queue where tasks are added, and the even loop polls this queue for the next task to perform. For eg. a settimeout will be available in the queue after its given timeout period, and then it will be picked up by event loop and processed further. Event loop offloads all heavy lifting tasks to worker threads. Same is the story for IO/CPU intensive tasks.
 
-2. **Worker-threads** -> multi-threaded. The underlying C++ libuv library mantains a thread pool for processing heavy duty operations.
+2. **Worker-threads** -> multi-threaded. The underlying C++ libuv library mantains a thread pool for processing heavy duty operations. Some of the node standard libraries internally use thread pools. eg. fs, crypto etc. We can also write custom code to access the underlying worker threads.
 
 Read this for more info:
 
