@@ -147,4 +147,4 @@ Read this for more info:
 
 https://nodejs.org/uk/docs/guides/dont-block-the-event-loop/
 
-
+One can use clustering where the cluster manager will take care of spawning multiple nodejs event loop threads.
