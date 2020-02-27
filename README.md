@@ -112,7 +112,7 @@ Next, visit 'chrome://inspect' in the Chrome browser. There, you’ll see a list
 
 Mongoose is a library used to declare object schema and add validations to the model. Works really well when persisitng data models in the mongo db. Easily integrates validations on respective fields of the model. 
 
-Extras:
+**Security**:
 
 You can use bcrypt library to encrypt the data.
 
@@ -120,8 +120,29 @@ You can jsonwebtoken library to create or verify JWT tokens:
 ```
 const jwt = require('jsonwebtoken');
 jwt.sign({ user details }, 'myPassword');
-
-and then on subsequent calls, you can verify the token like this:
-jwt.verify(token, 'myPassword');
 ```
 When creating the token, you can also pass in an optional expiry paramter after which the token expires.
+
+You must save the tokens in the backend for different user login sessions (eg. web, mobile, tablet etc), so that if the user logs out of one device, he doesn't get logged out from other devices.
+
+On subsequent calls, you can verify the token like this:
+```
+const decoded = jwt.verify(token, 'myPassword');
+const userId = decoded._id;
+```
+You can also get user name from the validted token. This verification can be added to generic app.use() middleware as shown in app.js, or we can have request level middlewares by adding them to specific route handlers. (see auth function and its use in app.js)
+
+
+**Q. Is nodejs really single-threaded?**
+
+**Ans.** nodejs has 2 threads:
+
+1. **Event-loop** -> Single threaded. nodejs maintains a queue where tasks are added, and the even loop polls this queue for the next task to perform. For eg. a settimeout will be available in the queue after its given timeout period, and then it will be picked up by event loop and processed further. Event loop offloads all heavy lifting tasks to worker threads. Same is the story for IO/CPU intensive tasks.
+
+2. **Worker-threads** -> multi-threaded. The underlying C++ libuv library mantains a thread pool for processing heavy duty operations.
+
+Read this for more info:
+
+https://nodejs.org/uk/docs/guides/dont-block-the-event-loop/
+
+

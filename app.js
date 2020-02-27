@@ -9,13 +9,30 @@ console.log(chalk.blue(__dirname, __filename));
 
 const path = require('path'); //default modules provided by nodejs need not be installed
 const viewPath = path.join(__dirname, '/views');
-
 const restService = require("./service/restService.js");
+
 
 //Here we are configuring express to use body-parser as middle-ware for POST requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(colorRouter); //seperate routes into separate files like this
+
+//Middleware to capture each request, can be used for auth or request level filtering.
+app.use((req, res, next) => {
+	console.log(req.method, req.path);
+	next(); //if next is not called, the request handlers will not get executed.
+})
+
+const auth = async (req, res, next) => { //note the async in auth middleware
+	console.log("auth middlweare");
+	/*
+	const decoded = jwt.verify(token, 'myPassword');
+	const userName = decoded.name;
+	*/
+	const userName = "ramit";
+	req.userName = userName;
+	next();
+}
 
 app.set('views', viewPath) //path to html directory
 app.set('view engine', 'pug')
@@ -32,11 +49,12 @@ app.get('/pug', (req, res) => {
   	res.render('index', { title: 'Hey', message: 'Hello there!' })
 });
 
-app.get('/testGet/:text', function (req, res) {
+app.get('/testGet/:text', auth, function (req, res) { //auth middleware used here
 	const responseMsg = {
-		pathconstiable : req.params.text,
-		requestconstiable: req.query.value
+		pathVariable : req.params.text,
+		requestVariable: req.query.value
 	};
+	console.log("req.userName: ", req.userName);
 	console.log("Get request response: ", responseMsg);
   	res.send(responseMsg);
 });
