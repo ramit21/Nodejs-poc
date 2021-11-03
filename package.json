@@ -28,6 +28,6 @@
     "nodemon": "^2.0.2",
     "pug": "^2.0.4",
     "request": "^2.85.0",
-    "validator": "^12.2.0"
+    "validator": "^13.7.0"
   }
 }
